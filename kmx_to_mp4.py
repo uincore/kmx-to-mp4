@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 import os.path as path
 import getopt
@@ -27,8 +28,10 @@ def kmx_to_mp4(file_path):
             if (len(buffer) > 0):
                 out_file.write(buffer)
                 out_file_size = path.getsize(out_path)
-                print('已完成{0}%'.format(round(out_file_size/file_size * 100, 2)), end='\r')
+                #print('已完成{0}%'.format(round(out_file_size/file_size * 100, 2)), end='\r')
+                print("processing %2d%%\r"%(round(out_file_size*100/file_size, 2) ) )
             else:
+                print("processing %2d%%\r"%(100) )
                 print("转换完成！！！")
                 f.close()
                 out_file.close()
